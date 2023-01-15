@@ -9,13 +9,12 @@ const index: NextPage<{
     file: IFile
 }> = ({ file: { format, name, sizeInBytes, id } }) => {
 
-    const handleDownload = async() => {
-        const {data} =  await axios.get(`http://localhost:8000/api/files/${id}/download`, {
+    const handleDownload = async () => {
+        const { data } = await axios.get(`http://localhost:8000/api/files/${id}/download`, {
             responseType: "blob",
-    })
-    fileDownload(data, name);
-}
-
+        })
+        fileDownload(data, name);
+    }
 
     return (
         <div className='flex flex-col items-center justify-center py-3 space-y-4 bg-gray-800 rounded-md shadow-xl w-96'>
