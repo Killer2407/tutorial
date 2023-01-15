@@ -4,8 +4,8 @@
 
 /* create component class */
 
-/* @layer components{
-  .className{
-    @apply <tailwind classes>
+@layer components{
+  .button{
+    @apply w-44 bg-gray-900 my-5 rounded-md p-2 focus:outline-none"
   }
-} */
+}
