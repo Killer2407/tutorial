@@ -10,7 +10,7 @@ const DropZone:FunctionComponent<{setFile: Dispatch<any>}>= ({setFile}) => {
         [],
     )
 
-    const { getRootProps, getInputProps, isDragAccept, isDragReject } = useDropzone({ onDrop, multiple: false, accept: 'image/jpeg,image/png, audio/mpeg' })
+    const { getRootProps, getInputProps, isDragAccept, isDragReject } = useDropzone({ onDrop, multiple: false, accept: {'image/*': []}})
     return (
         <div className="p-4 w-full">
             <div {...getRootProps()} className="w-full h-80 rounded-md cursor-pointer focus:outline-none"> //this is a property getter

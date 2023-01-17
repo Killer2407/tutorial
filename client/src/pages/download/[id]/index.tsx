@@ -5,15 +5,15 @@ import { GetServerSideProps, NextPage } from 'next'
 import React from 'react'
 import fileDownload from 'js-file-download'
 
-const index: NextPage<{
-    file: IFile
-}> = ({ file: { format, name, sizeInBytes, id } }) => {
+const index: NextPage<{file: IFile}> = ({ file: { format, name, sizeInBytes, id } }) => {
 
     const handleDownload = async () => {
         const { data } = await axios.get(`http://localhost:8000/api/files/${id}/download`, {
             responseType: "blob",
         })
-        fileDownload(data, name);
+
+        let _name =name.toString()
+        fileDownload(data, _name);
     }
 
     return (
@@ -32,7 +32,7 @@ const index: NextPage<{
 
 export default index
 
-export async function getServerSideProps(context: GetServerSideProps) {
+export async function getServerSideProps(context: any) {
     const { id } = context.query;
     let file;
     try {
